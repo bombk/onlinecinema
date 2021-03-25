@@ -1,0 +1,274 @@
+.sub-page {
+	#main {
+		padding-top: 100px;
+		font-size: 18px;
+		line-height: 1.2;
+
+		@include media('<desktop') {
+			font-size: 16px;
+			line-height: 1.2;
+		}
+
+		@include media('<tablet') {
+			padding-top: 60px;
+		}
+
+		@include media('<phone') {
+			padding-top: 50px;
+			font-size: 14px;
+			line-height: 1.2;
+		}
+	}
+
+	h2 {
+		font-size: 24px;
+		line-height: 1;
+	}
+}
+
+.movie-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	padding-bottom: 25px;
+
+	@include media('<tablet') {
+		flex-direction: column;
+	}
+
+	@include media('<phone') {
+		padding-bottom: 15px;
+	}
+
+	.trailer-wrap {
+		width: 65%;
+		text-align: justify;
+
+		@include media('<desktop') {
+			width: 55%;
+		}
+
+		@include media('<tablet') {
+			width: 100%;
+		}
+	}
+
+	iframe {
+		width: 100%;
+		height: 500px;
+		margin-bottom: 30px;
+		border: 0;
+
+		@include media('<desktop') {
+			height: 400px;
+		}
+
+		@include media('<tablet') {
+			height: 350px;
+			margin-bottom: 20px;
+		}
+
+		@include media('<phone') {
+			height: 250px;
+			margin-bottom: 15px;
+		}
+	}
+
+	.movie-details {
+		width: 35%;
+		padding: 0 25px;
+		font-family: $rajdhani;
+		font-size: 24px;
+		line-height: 1.1;
+
+		@include media('<widescreen') {
+			font-size: 22px;
+			line-height: 1.1;
+			padding: 0 20px;
+		}
+
+		@include media('<desktop') {
+			width: 45%;
+			font-size: 20px;
+			line-height: 1.1;
+			padding: 0 15px;
+		}
+
+		@include media('<tablet') {
+			width: 100%;
+			padding: 0;
+		}
+
+		@include media('<phone') {
+			font-size: 18px;
+			line-height: 1.1;
+		}
+	}
+
+	dt,
+	dd {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	h2 {
+		text-transform: uppercase;
+	}
+
+	tr {
+		&:first-child {
+			td {
+				&:last-child {
+					text-transform: uppercase;
+					color: $orange;
+				}
+			}
+		}
+
+		&:last-child {
+			span,
+			a {
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+			.icon-ticket {
+				margin-right: 15px;
+				color: $orange;
+			}
+
+			a {
+				&:hover {
+					color: $orange;
+				}
+			}
+		}
+
+		td {
+			padding-bottom: 15px;
+			vertical-align: top;
+
+			@include media('<tablet') {
+				padding-bottom: 10px;
+			}
+
+			@include media('<phone') {
+				padding-bottom: 5px;
+			}
+		}
+
+		.rating {
+			color: $orange;
+		}
+	}
+
+	.disabled {
+		.icon-ticket {
+			position: relative;
+
+			&:after {
+				content: 'Not Released';
+				position: absolute;
+				top: -40px;
+				left: 0;
+				width: 120px;
+				background: #cecece;
+				border-radius: 5px;
+				color: $black;
+				font-size: 16px;
+				line-height: 1;
+				z-index: 10;
+				padding: 10px;
+				text-align: center;
+				opacity: 0;
+				visibility: hidden;
+				transition: all .1s linear;
+			}
+
+			&:hover {
+				&:after {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+
+		a {
+			position: relative;
+			color: #ccc;
+			pointer-events: none;
+
+			&:before {
+				content: '';
+				position: absolute;
+				height: 3px;
+				border-radius: 2px;
+				top: 50%;
+				transform: translateY(-50%) rotate(15deg);
+				left: 0;
+				right: 0;
+				background: red;
+				z-index: 5;
+			}
+
+			&:after {
+				content: '';
+				position: absolute;
+				height: 3px;
+				border-radius: 2px;
+				top: 50%;
+				transform: translateY(-50%) rotate(-15deg);
+				left: 0;
+				right: 0;
+				background: red;
+				z-index: 5;
+			}
+		}
+	}
+}
+
+.status-info {
+	max-width: 120px;
+	width: 100%;
+	padding: 10px 0 10px 28px;
+	border: 1px solid gray;
+	height: 95px;
+	border-radius: 5px;
+
+	li {
+		position: relative;
+
+		&:before {
+			content: '';
+			position: absolute;
+			height: 8px;
+			width: 8px;
+			border-radius: 50%;
+			top: 50%;
+			left: -15px;
+			transform: translateY(-50%);
+			display: block;
+		}
+
+		&:nth-child(1) {
+			&:before {
+				background: $green; 
+			}
+		}
+
+		&:nth-child(2) {
+			&:before {
+				background: $orange; 
+			}
+		}
+
+		&:nth-child(3) {
+			&:before {
+				background: $red; 
+			}
+		}
+	}
+}
+
+.seat-number {
+	max-width: 30px;
+}

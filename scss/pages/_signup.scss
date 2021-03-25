@@ -1,0 +1,110 @@
+.sign-wrap {
+	z-index: 101;
+	padding-top: 100px;
+	transition: all 0.2s linear;	
+
+	@include media('<phone') {
+		padding-top: 60px;
+	}
+}
+
+.signup {
+	width: 500px;
+	margin: 0 auto;
+	position: relative;
+
+	@include media('<tablet') {
+		width: 100%;
+		padding: 0 20px;
+		font-size: 15px;
+		line-height: 1.2;
+	}
+
+	a {
+		color: $orange;
+
+		&:hover {
+			opacity: .7;
+		}
+	}
+
+	h2 {
+		text-transform: uppercase;
+		padding-right: 40px;
+
+		@include media('<tablet') {
+			font-size: 25px;
+		}
+	}
+}
+
+.signup-form {
+	@include media('<tablet') {
+		font-size: 15px;
+		line-height: 1;
+	}
+
+	input {
+		width: 100%;
+		margin-bottom: 17px;
+		color: $black;
+		border-radius: 2px;
+		padding: 5px 8px;
+
+		&:focus {
+			&::placeholder {
+				color: $orange;
+			}
+		}
+
+		@include media('<tablet') {
+			margin-bottom: 15px;
+		}
+
+		@include media('<phone') {
+			margin-bottom: 10px;
+		}
+	}
+
+	input[type="submit"] {
+		width: auto;
+		transition: all .2s linear;
+		border-radius: 5px;
+
+		&:hover {
+			background: buttonface;
+			color: $orange;
+		}		
+	}
+}
+
+.register {
+	color: $black;
+
+	#wrapper {
+		height: 100vh;
+		background: #fff;
+	}
+	
+	h2 {
+		text-align: center;
+		padding: 0;
+		font-size: 40px;
+		line-height: 1;
+
+		@include media('<desktop') {
+			font-size: 30px;
+			line-height: 1;
+		}
+
+		@include media('<tablet') {
+			font-size: 25px;
+			line-height: 1;
+		}
+
+		@include media('<phone') {
+			font-size: 22px;
+			line-height: 1;
+		}
+	}
+}

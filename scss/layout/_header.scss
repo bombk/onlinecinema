@@ -1,0 +1,348 @@
+.nav-active {
+	.nav-opener {
+		.burger-menu {
+			&:nth-child(1) {
+				top: 8px;
+				transform: rotate(45deg);
+			}
+			&:nth-child(2) {
+				opacity: 0;
+				visibility: hidden;
+			}
+			&:nth-child(3) {
+				top: 8px;
+				transform: rotate(-45deg);
+			}
+		}
+	}
+
+	.navbar-right {
+		opacity: 1;
+		visibility: visible;
+		transform: translateX(0);
+	}
+}
+
+.nav-opener {
+	display: none;
+	@include size(26px,16px);
+	position: relative;
+
+	transition: all .2s linear;
+
+	&:hover {
+		cursor: pointer;
+
+		.burger-menu {
+			opacity: .8;
+		}
+	}
+
+	@include media('<tablet') {
+		display: block;	
+	}
+
+	.burger-menu {
+		border-radius: 5px;
+		background: $orange;
+		height: 4px;
+		left: 0;
+		margin-bottom: 4px;
+		right: 0;
+		transition: all .2s linear;
+		position: absolute;
+
+		&:nth-child(1) {
+			top: 0;
+		}
+
+		&:nth-child(2) {
+			top: 8px;
+		}
+
+		&:nth-child(3) {
+			top: 16px;
+		}
+	}
+}
+
+#nav {
+	padding: 13px 0;
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	right: 0;
+	font-family: $rajdhani;
+	background: rgba(0,0,0,.7);
+	transition: padding .2s linear, background .2s linear;
+}
+
+.nav-holder {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	padding: 0 20px;
+
+	@include media('<960px') {
+		padding: 0 10px;
+	}
+
+	@include media('<tablet') {
+		padding: 0;
+	}
+
+	.logo {
+		width: 170px;
+
+		@include media('<widescreen') {
+			width: 150px;
+		}
+
+		@include media('<tablet') {
+			width: 130px;
+		}
+
+		@include media('<phone') {
+			width: 100px;
+		}
+
+	}
+}
+
+.active-login {
+	.navbar-right {
+		.login-block {
+			opacity: 1;
+			visibility: visible;
+			transform: translateX(0);
+		}
+	}
+}
+
+.navbar-right {
+	display: flex;
+	align-items: center;
+	flex-wrap: no-wrap;
+	min-height: 70px;
+
+	@include media('<tablet') {
+		height: calc(100vh - 63px);
+		position: fixed;
+		top: 73px;
+		bottom: 0;
+		left: 0;	
+		right: 0;	
+		background: #34495e;
+		padding: 0 15px;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateX(-100%);
+		transition: all .2s linear;
+		flex-direction: column;
+		overflow: hidden;
+		overflow-y: scroll;
+
+		&:before {
+			content: '';
+			position: absolute;
+			height: 100%;
+			left: 0;
+			right: 0;
+		}
+	}
+
+	@include media('<phone') {
+		top: 62px;
+	}
+
+	.active {
+		a {
+			background: $orange;
+
+			@include media('<desktop') {
+				padding: 4px 10px;
+			}
+
+			@include media('<tablet') {
+				background: transparent;
+				color: $orange;	
+				padding-left: 0;
+			}
+
+			&:hover {
+				color: $white;
+				opacity: .8;
+
+				@include media('<tablet') {
+					color: $orange;	
+				}
+			}
+		}
+	}
+
+	a {
+		padding: 8px 13px;
+		transition: background .1s linear;
+		display: inline-block;
+		vertical-align: middle;
+		color: $white;
+
+		&:hover {
+			color: $orange;
+		}
+
+		@include media('<tablet') {
+			display: block;
+			padding: 5px 0;	
+		}
+	}
+
+	li {
+		position: relative;
+
+		@include media('<tablet') {
+			width: 100%;
+		}
+
+		.login-opener {
+			display: inline-block;
+			vertical-align: top;
+			position: relative;		
+			transition: color .1s linear;
+			padding: 8px 13px;
+
+			@include media('<tablet') {
+				padding: 5px 0;	
+			}
+
+			&:hover {
+				color: $orange;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.login-block {
+		border-bottom-right-radius: 5px;
+		border-bottom-left-radius: 5px;
+		background: rgba(0,0,0,.5);
+		margin-left: -20px;
+		overflow: hidden;
+		padding: 35px 25px 0;
+		position: absolute;
+		right: 0;
+		top: 68px;
+		transition: all .1s linear;
+		width: 255px;
+		opacity: 0;
+		visibility: hidden;
+
+		@include media('<tablet') {
+			top: 43px;
+			left: -5px;
+			right: -25px;
+			width: auto;
+			height: auto;
+			background: black;
+			padding: 40px 25px 20px;
+			transform: translateX(100%);
+			transition: all .2s linear;
+		}
+
+		.login-opener {
+			position: absolute;
+			top: 0;
+			right: 10px;
+			font-size: 18px;
+			line-height: 1;
+
+			@include media('<tablet') {
+				top: 6px;
+				right: 25px;
+			}
+		}
+
+
+		p {
+			@include media('<tablet') {
+				margin-bottom: 0;
+			}
+		}
+
+		.login-form {
+			width: 100%;
+
+			input:not([type="submit"]) {
+				width: 100%;
+				margin-bottom: 10px;
+				color: $black;
+
+				&:focus {
+					color: $black;
+
+					&::placeholder {
+						color: $orange;
+					}
+				}
+			}
+
+			input[type="submit"] {
+				@include media('<tablet') {
+					width: 110px;
+				}
+
+				&:focus {
+					color: $black;
+				}
+			}
+		}
+	}
+
+	.block-toggle {
+		padding: 0;
+		color: $orange;
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+.nav-active {
+	@include media('<tablet') {
+		position: fixed;
+		overflow: hidden;
+	}
+}
+
+//js classes
+.active-scroll {
+	#nav {
+		padding: 5px 0 !important;
+		background: #000 !important;
+	}
+
+	.navbar-right {
+		top: 41px;
+
+		@include media('<tablet') {
+			top: 57px;
+		}
+
+		@include media('<phone') {
+			top: 46px;
+		}
+	}
+
+	.login-block {
+		top: 56px;
+
+		@include media('<widescreen') {
+			top: 52px;
+		}	
+
+		@include media('<tablet') {
+			top: 44px;
+		}
+	}
+}

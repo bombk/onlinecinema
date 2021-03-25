@@ -1,0 +1,253 @@
+#buy {	
+	background: #2c3e50;
+	padding-top: 15px;	
+
+	#wrapper {
+		background-color: transparent;
+	}
+
+	#main .container {
+		@include media('<tablet') {
+			padding: 0 15px;
+		}
+
+		@include media('<phone') {
+			padding: 0 5px;	
+		}
+	}
+
+	.copyright {
+		padding: 10px 0 15px;	
+
+		@include media('<phone') {
+			font-size: 12px;	
+			line-height: 1;	
+		}		
+	}
+
+
+	.ticket {
+		background: #000;
+
+		.movie-details {
+			padding-top: 50px;
+		}
+
+		h2 {
+			text-align: center;
+			color: $orange;
+			margin-bottom: 10px;
+		}
+
+		input[type="number"] {
+			color: #000;
+		}
+
+		input[type=number]::-webkit-inner-spin-button, 
+		input[type=number]::-webkit-outer-spin-button { 
+			-webkit-appearance: none; 
+		}
+
+		input[type=number] {
+			-moz-appearance: textfield;
+		}
+
+		.button-buy {
+			border-radius : 5px;
+			border: 0;
+			outline: 0;
+			padding: 5px 15px;
+			background: $orange;
+			transition: opacity .2s linear;
+
+			&:hover {
+				opacity: .8;
+			}
+		}
+
+		#buy-table {
+			max-width: 700px;
+			margin: 0 auto;
+
+			tr {
+				margin: 10px 0;
+				display: block;
+
+				&:last-child {
+					td{
+						padding-left: 0;
+					}
+				}
+			}
+
+			td {
+				&:last-child {
+					padding-left: 10px;
+				}
+
+				.ticket-quantity {
+					text-align: center;
+					width: 30px;
+				}
+			}
+		}
+	}
+
+	h1 {
+		text-align: center;
+
+		@include media('<tablet') {
+			margin-bottom: 10px;	
+		}
+
+		@include media('<phone') {
+			font-size: 25px;	
+			line-height: 1;	
+		}
+	}
+
+	.seat-block {
+		margin: 0 auto 20px;
+		width: 500px;
+		padding: 10px 15px;
+		font-family: $rajdhani;	
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		justify-content: space-between;
+
+		@include media('<tablet') {
+			font-size: 18px;	
+			line-height: 1;	
+		}
+
+		@include media('<phone') {
+			margin-bottom: 10px;	
+			padding-top: 0;	
+			font-size: 15px;	
+			line-height: 1;	
+		}
+
+		div {
+			margin-bottom: 10px;
+		}
+	}
+
+	.btn-book {
+		background: transparent;
+		border: 1px solid orange;
+		transition: all .2s linear;
+
+		&:hover {
+			border: 1px solid transparent;
+			color: $white;
+			background: $orange;
+		}
+	}
+
+	.seat-structure {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		font-family: $rajdhani;
+
+		>li {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.row {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row-reverse;
+			margin-bottom: 30px;
+
+			@include media('<tablet') {
+				margin-bottom: 15px;	
+			}
+
+			@include media('<phone') {
+				margin-bottom: 10px;	
+			}
+
+			li {
+				display: flex;
+				flex-direction: column;
+				margin-left: 10px;
+
+				@include media('<tablet') {
+					margin-left: 8px;	
+				}
+
+				@include media('<phone') {
+					margin-left: 3px;	
+				}
+
+				&:last-child {
+					margin-left: 0;
+				}
+			}
+		}
+
+		strong {
+			text-align: center;
+
+			@include media('<tablet') {
+				font-size: 15px;	
+				line-height: 1;	
+			}
+
+			@include media('<phone') {
+				font-size: 12px;	
+				line-height: 1;	
+			}
+		}
+
+		.icon-chair {
+			color: #1abc9c;
+			font-size: 50px;
+			line-height: 1;
+
+			&:hover {
+				color: $white;
+				cursor: pointer;
+			}
+
+			@include media('<desktop') {
+				font-size: 40px;
+				line-height: 1;
+			}
+
+			@include media('<tablet') {
+				font-size: 30px;	
+				line-height: 1;	
+			}
+
+			@include media('<phone') {
+				font-size: 23px;	
+				line-height: 1;	
+			}
+		}
+	}
+
+	.reserved {
+		strong {
+			color: #e74c3c !important;
+		}
+
+		.icon-chair {
+			color: #e74c3c !important;
+		}
+	}
+
+	.selected {
+		strong {
+			color: #f1c40f !important;
+		}
+
+		.icon-chair {
+			color: #f1c40f !important;
+		}
+	}
+}
